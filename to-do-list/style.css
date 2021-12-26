@@ -87,3 +87,9 @@ form button:hover {
 .todo-item {
   padding: 0rem 0.5rem;
 }
+
+.fa-trash,
+.fa-check {
+  /* this means that we can click anywhere to trigger events */
+  pointer-events: none;
+}
