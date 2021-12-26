@@ -2,10 +2,12 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
+const filterOption = document.querySelector(".filter-todos");
 
 // Event Listeneres
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
+filterOption.addEventListener("click", filterTodo);
 
 // Functions
 function addTodo(event) {
@@ -62,4 +64,26 @@ function deleteCheck(event) {
     const todo = item.parentElement;
     todo.classList.toggle("completed"); // we have created this class to that once the complete-btn is clicked, we can apply new css
   }
+}
+
+function filterTodo(event) {
+  const todos = todoList.childNodes;
+  todos.forEach(function (todo) {
+    switch (event.target.value) {
+      case "all":
+        todo.style.display = "flex";
+        break;
+      case "completed":
+        todo.style.display = todo.classList.contains("completed")
+          ? "flex"
+          : "none";
+        break;
+      case "uncompleted":
+        todo.style.display = !todo.classList.contains("completed")
+          ? "flex"
+          : "none";
+        break;
+    }
+  });
+  console.log(todos);
 }
