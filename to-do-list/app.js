@@ -50,12 +50,16 @@ function deleteCheck(event) {
   // Delete Todo
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
-    todo.remove();
+    // the element still remains after the transition. we need to change this functionality
+
+    // Animation
+    todo.classList.add("fall");
+    todo.addEventListener("transitionend", () => todo.remove());
   }
 
   // Check mark
   if (item.classList[0] === "complete-btn") {
     const todo = item.parentElement;
-    todo.classList.toggle("complete");
+    todo.classList.toggle("completed"); // we have created this class to that once the complete-btn is clicked, we can apply new css
   }
 }
