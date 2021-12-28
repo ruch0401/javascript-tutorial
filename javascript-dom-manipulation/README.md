@@ -103,7 +103,12 @@ spanHi.removeAttribute("title"); // removes the title attribute
 ```html
 <body>
   <div>
-    <span title="hello" id="hi">Hello</span>
+    <span
+      id="hi"
+      data-test="this is a test"
+      data-longer-name="this is a longer name to show camel case notation"
+      >Hello</span
+    >
     <span id="bye">bye</span>
   </div>
 
@@ -117,7 +122,56 @@ const div = document.querySelector("div");
 const spanHi = document.querySelector("#hi");
 const spanBye = document.querySelector("#bye");
 
-console.log(spanHi.getAttribute("id")); // gets the attribute named id
-spanHi.setAttribute("id", "sfsdfsdf"); // sets the id attribute to the given value
-spanHi.removeAttribute("title"); // removes the title attribute
+console.log(spanHi.dataset);
+console.log(spanHi.dataset.test);
+console.log(spanHi.dataset.longerName);
+spanBye.dataset.newName = "HI";
+```
+
+### Modifying Element Classes
+
+```html
+<body>
+  <div>
+    <span id="hi" class="hi1 hi2">Hello</span>
+    <span id="bye">bye</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+```
+
+```javascript
+const body = document.body;
+const div = document.querySelector("div");
+const spanHi = document.querySelector("#hi");
+const spanBye = document.querySelector("#bye");
+
+spanHi.classList.add("new-class"); // adds a new class to existing classlist
+spanHi.classList.remove("hi1"); // removes a class from the existing classlist
+spanHi.classList.toggle("hi3"); // removes it if exists already or adds if does not exist
+```
+
+### Modifying Element Classes
+
+```html
+<body>
+  <div>
+    <span id="hi" class="hi1 hi2">Hello</span>
+    <span id="bye">bye</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+```
+
+```javascript
+const body = document.body;
+const div = document.querySelector("div");
+const spanHi = document.querySelector("#hi");
+const spanBye = document.querySelector("#bye");
+
+spanHi.classList.add("new-class"); // adds a new class to existing classlist
+spanHi.classList.remove("hi1"); // removes a class from the existing classlist
+spanHi.classList.toggle("hi3"); // removes it if exists already or adds if does not exist
 ```
