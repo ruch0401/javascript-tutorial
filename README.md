@@ -26,3 +26,4 @@ Visit [here](/to-do-list) to view the source code
 
 - [Javascript Basics](javascript-basics)
 - [Javascript DOM Manipulation](javascript-dom-manipulation)
+- [Javascript DOM Traversal](javascript-dom-traversal)
