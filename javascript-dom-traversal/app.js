@@ -1,6 +1,7 @@
 const grandparent = document.getElementById("grandparent-id");
+const parents = Array.from(document.getElementsByClassName("parent"));
 
-changeColor(grandparent);
+parents.forEach((parent) => changeColor(parent));
 
 function changeColor(element) {
   element.style.backgroundColor = "#333";
