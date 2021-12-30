@@ -1,6 +1,6 @@
 # Javascript DOM Traversal
 
-### getElementById()
+## Basic HTML
 
 ```html
 <body>
@@ -17,6 +17,8 @@
   <script src="app.js"></script>
 </body>
 ```
+
+### getElementById()
 
 ```javascript
 const grandparent = document.getElementById("grandparent-id");
@@ -30,22 +32,6 @@ function changeColor(element) {
 
 ### getElementByClassName()
 
-```html
-<body>
-  <div class="grandparent" id="grandparent-id">
-    <div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-    </div>
-    <div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-    </div>
-  </div>
-  <script src="app.js"></script>
-</body>
-```
-
 ```javascript
 const grandparent = document.getElementById("grandparent-id");
 const parents = Array.from(document.getElementsByClassName("parent")); // getElementByClassName always returns a collection of objects. Thus, we need to extract the array from it. Hence, Array.from()
@@ -58,22 +44,6 @@ function changeColor(element) {
 ```
 
 ### Query Selector
-
-```html
-<body>
-  <div class="grandparent" id="grandparent-id">
-    <div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-    </div>
-    <div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-    </div>
-  </div>
-  <script src="app.js"></script>
-</body>
-```
 
 ```javascript
 const grandparent = document.querySelector("#grandparent-id"); // we pass the css selector to the querySelector() function
@@ -90,22 +60,6 @@ function changeColor(element) {
 - `querySelector()` just picks the first match and applies the provided changes to that element
 
 ### Query Selector All
-
-```html
-<body>
-  <div class="grandparent" id="grandparent-id">
-    <div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-    </div>
-    <div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-    </div>
-  </div>
-  <script src="app.js"></script>
-</body>
-```
 
 ```javascript
 const grandparent = document.querySelector(".grandparent"); // we can also select an entire class using the class notation of a css selector
@@ -125,22 +79,6 @@ function changeColor(element) {
 
 ### Selecting Children
 
-```html
-<body>
-  <div class="grandparent" id="grandparent-id">
-    <div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-    </div>
-    <div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-    </div>
-  </div>
-  <script src="app.js"></script>
-</body>
-```
-
 ```javascript
 const grandparent = document.querySelector(".grandparent"); // we can also select an entire class using the class notation of a css selector
 
@@ -153,7 +91,7 @@ function changeColor(element) {
 }
 ```
 
-Anotehr example is as follows -
+Another example is as follows -
 
 ```javascript
 const grandparent = document.querySelector(".grandparent"); // we can also select an entire class using the class notation of a css selector
@@ -163,6 +101,21 @@ const parentOne = parents[0];
 const children = parentOne.children;
 
 changeColor(children[0]);
+
+function changeColor(element) {
+  element.style.backgroundColor = "#333";
+}
+```
+
+### Selecting Descendents
+
+`getElementById()`, `getElementsByClassName()`, `querySelector()` and `querySelectorAll()` can all be used on any javascript element and not just the `document`.
+
+```javascript
+const grandparent = document.querySelector(".grandparent"); // we can also select an entire class using the class notation of a css selector
+const children = grandparent.querySelectorAll(".child");
+
+children.forEach(changeColor);
 
 function changeColor(element) {
   element.style.backgroundColor = "#333";
