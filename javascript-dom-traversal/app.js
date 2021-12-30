@@ -1,7 +1,11 @@
-const grandparent = document.querySelector(".grandparent"); // we can also select an entire class using the class notation of a css selector
-const children = grandparent.querySelectorAll(".child");
+const childOne = document.querySelector("#child-one");
 
-children.forEach(changeColor);
+// Traversing UP the tree
+const parent = childOne.parentElement;
+
+const grandparent = parent.parentElement;
+
+changeColor(grandparent);
 
 function changeColor(element) {
   element.style.backgroundColor = "#333";

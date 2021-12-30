@@ -121,3 +121,33 @@ function changeColor(element) {
   element.style.backgroundColor = "#333";
 }
 ```
+
+### Selecting Parent
+
+```html
+<body>
+  <div class="grandparent" id="grandparent-id">
+    <div class="parent">
+      <div class="child" id="child-one"></div>
+      <div class="child"></div>
+    </div>
+    <div class="parent">
+      <div class="child"></div>
+      <div class="child"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+```
+
+```javascript
+const childOne = document.querySelector("#child-one");
+
+// Traversing UP the tree
+const parent = childOne.parentElement;
+const grandparent = parent.parentElement;
+changeColor(grandparent);
+function changeColor(element) {
+  element.style.backgroundColor = "#333";
+}
+```
