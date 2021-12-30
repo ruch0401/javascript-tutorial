@@ -1,9 +1,8 @@
 const childOne = document.querySelector("#child-one");
 
-// Traversing UP the tree
-const parent = childOne.parentElement;
-
-const grandparent = parent.parentElement;
+// Selecting ancestor
+const grandparent = childOne.closest(".grandparent");
+// closest works just like .querySelector() but it travels upwards and finds the closest parent that matches with the selector provided and returns that element instead.
 
 changeColor(grandparent);
 
