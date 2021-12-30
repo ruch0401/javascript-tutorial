@@ -167,3 +167,29 @@ function changeColor(element) {
   element.style.backgroundColor = "#333";
 }
 ```
+
+### Next Element Sibling
+
+```javascript
+const childOne = document.querySelector("#child-one");
+const childTwo = childOne.nextElementSibling;
+
+changeColor(childTwo);
+
+function changeColor(element) {
+  element.style.backgroundColor = "#333";
+}
+```
+
+### Previous Element Sibling
+
+```javascript
+const childOne = document.querySelector("#child-one");
+const childTwo = childOne.nextElementSibling;
+
+changeColor(childTwo.previousElementSibling);
+
+function changeColor(element) {
+  element.style.backgroundColor = "#333";
+}
+```
