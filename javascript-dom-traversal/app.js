@@ -1,11 +1,10 @@
-// const grandparent = document.querySelector("#grandparent-id"); // we pass the css selector to the querySelector() function
 const grandparent = document.querySelector(".grandparent"); // we can also select an entire class using the class notation of a css selector
+const parents = Array.from(grandparent.children);
 
-const parents = document.querySelectorAll(".parent");
+const parentOne = parents[0];
+const children = parentOne.children;
 
-// changeColor(grandparent);
-// parents.forEach((parent) => changeColor(parent));
-parents.forEach(changeColor);
+changeColor(children[0]);
 
 function changeColor(element) {
   element.style.backgroundColor = "#333";

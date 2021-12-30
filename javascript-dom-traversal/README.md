@@ -122,3 +122,49 @@ function changeColor(element) {
 ```
 
 - If you wish to select all the elements pertaining to a single query selector, use `querySelectorAll()`.
+
+### Selecting Children
+
+```html
+<body>
+  <div class="grandparent" id="grandparent-id">
+    <div class="parent">
+      <div class="child"></div>
+      <div class="child"></div>
+    </div>
+    <div class="parent">
+      <div class="child"></div>
+      <div class="child"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+```
+
+```javascript
+const grandparent = document.querySelector(".grandparent"); // we can also select an entire class using the class notation of a css selector
+
+const parents = Array.from(grandparent.children);
+
+parents.forEach(changeColor);
+
+function changeColor(element) {
+  element.style.backgroundColor = "#333";
+}
+```
+
+Anotehr example is as follows -
+
+```javascript
+const grandparent = document.querySelector(".grandparent"); // we can also select an entire class using the class notation of a css selector
+const parents = Array.from(grandparent.children);
+
+const parentOne = parents[0];
+const children = parentOne.children;
+
+changeColor(children[0]);
+
+function changeColor(element) {
+  element.style.backgroundColor = "#333";
+}
+```
