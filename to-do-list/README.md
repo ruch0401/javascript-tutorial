@@ -4,7 +4,7 @@ Visit [here](/to-do-list) to view the source code
 
 ### Working Video
 
-![Alt Text](resources/todo-list.gif)
+![To-Do List Gif](resources/todo-list.gif)
 
 ### Features
 
