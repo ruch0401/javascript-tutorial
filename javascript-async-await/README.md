@@ -29,9 +29,7 @@ function createPost(post) {
 createPost({ title: "Post Three", description: "This is the post three" });
 ```
 
-## Callback
-
-We add another functional, traditionally named as `callback` as follows -
+## Common Code
 
 ```javascript
 const posts = [
@@ -48,7 +46,13 @@ function getPosts() {
     document.body.innerHTML = output;
   }, 2000);
 }
+```
 
+## Callback
+
+We add another functional, traditionally named as `callback` as follows -
+
+```javascript
 function createPost(post, callback) {
   setTimeout(() => {
     posts.push(post);
@@ -63,3 +67,57 @@ createPost(
 ```
 
 This essentially means that once the post has been created, then we call the `getPosts()` method which is passed to the createPost function as a callback function
+
+## Promise
+
+Promise avoids something known as `callback hell`. When you call an API, the API response always returns a Promise. But for example purposes, we are creating our own promise.
+
+```javascript
+function createPost(post) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      posts.push(post);
+    });
+    const error = false;
+    if (!error) {
+      resolve();
+    } else {
+      reject("Something went wrong");
+    }
+  });
+}
+
+createPost({ title: "Post Three", description: "This is post three" }).then(
+  getPosts
+);
+```
+
+A promise takes in 2 arguments, resolve and reject. If there is no error, the ```resolve()``` method is called, however, if there is any error of sorts, we call the ```reject()``` method.
+
+Once a promise is created, we can then call it using the ```.then()``` method. Similarly, if a promise is rejected, we can catch it using the ```.catch()``` block as follows - 
+
+```javascript
+function createPost(post) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      posts.push(post);
+    });
+    const error = true;
+    if (!error) {
+      resolve();
+    } else {
+      reject("Something went wrong");
+    }
+  });
+}
+
+createPost({ title: "Post Three", description: "This is post three" })
+  .then(getPosts)
+  .catch((err) => {
+    console.log(err);
+    document.body.innerHTML = `<h2>${err}</h2>`;
+  });
+```
+
+## Handling Multiple Promises
+
