@@ -92,9 +92,9 @@ createPost({ title: "Post Three", description: "This is post three" }).then(
 );
 ```
 
-A promise takes in 2 arguments, resolve and reject. If there is no error, the ```resolve()``` method is called, however, if there is any error of sorts, we call the ```reject()``` method.
+A promise takes in 2 arguments, resolve and reject. If there is no error, the `resolve()` method is called, however, if there is any error of sorts, we call the `reject()` method.
 
-Once a promise is created, we can then call it using the ```.then()``` method. Similarly, if a promise is rejected, we can catch it using the ```.catch()``` block as follows - 
+Once a promise is created, we can then call it using the `.then()` method. Similarly, if a promise is rejected, we can catch it using the `.catch()` block as follows -
 
 ```javascript
 function createPost(post) {
@@ -121,3 +121,20 @@ createPost({ title: "Post Three", description: "This is post three" })
 
 ## Handling Multiple Promises
 
+If we want to trigger multiple promises simultaneously, then we can use `Promise.all()` as follows -
+
+```javascript
+// promise.all
+const promise1 = Promise.resolve("Hello World");
+const promise2 = 10;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 2000, "GoodBye!");
+});
+const promise4 = fetch("https://jsonplaceholder.typicode.com/users").then(
+  (res) => res.json();
+);
+
+Promise.all([promise1, promise2, promise3, promise4]).then((values) =>
+  console.log(values)
+);
+```
