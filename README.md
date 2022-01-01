@@ -9,4 +9,4 @@
 - [Javascript Basics](javascript-basics)
 - [Javascript DOM Manipulation](javascript-dom-manipulation)
 - [Javascript DOM Traversal](javascript-dom-traversal)
-- [Javascript Async Await Tutorial](javascript-async-await-tutorial)
+- [Javascript Async Await Tutorial](javascript-async-await)
