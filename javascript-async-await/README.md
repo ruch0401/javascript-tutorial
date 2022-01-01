@@ -138,3 +138,30 @@ Promise.all([promise1, promise2, promise3, promise4]).then((values) =>
   console.log(values)
 );
 ```
+
+### Async / Await
+
+It is sort of a syntactical sugar that allows us to write code as we would have written in a synchronized manner.
+
+```javascript
+async function init() {
+  await createPost({ title: "Post Three", description: "This is post three" });
+  getPosts();
+}
+
+init();
+```
+
+### Async / Await / Fetch
+
+The `fetch()` method in JavaScript is used to request to the server and load the information in the webpages. The request can be of any APIs that returns the data of the format JSON or XML. This method returns a promise.
+
+```javascript
+async function fetchUsers() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await res.json();
+  console.log(data);
+}
+
+fetchUsers();
+```
