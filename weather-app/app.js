@@ -5,7 +5,9 @@ window.addEventListener("load", () => {
   const temperatureDescription = document.querySelector(
     ".temperature-description"
   );
+  let temperatureUnit = document.querySelector(".temperature-unit");
   const locationTimezone = document.querySelector(".location-timezone");
+  const temperatureSection = document.querySelector(".degree-section");
 
   const apiKey = "7bc1ea7ffd50d848c35da2fcf58523ea";
   if (navigator.geolocation) {
@@ -31,6 +33,22 @@ window.addEventListener("load", () => {
           // Set respective Icon
           const iconId = document.querySelector(".icon");
           setIcon(icon, iconId);
+
+          // We wish to convert the temperature to C whenever we click on the section
+          temperatureSection.addEventListener("click", () => {
+            console.log(temperatureUnit.innerText);
+            if (temperatureUnit.innerText === "F") {
+              const convertedtTemperature = (temperature - 32) * (5 / 9);
+              temperatureDegreee.textContent =
+                Math.round((convertedtTemperature + Number.EPSILON) * 100) /
+                100;
+              temperatureUnit.textContent = "C";
+            } else {
+              const convertedtTemperature = (temperature * 9) / 5 + 32;
+              temperatureDegreee.textContent = temperature;
+              temperatureUnit.textContent = "F";
+            }
+          });
         });
     });
   }
