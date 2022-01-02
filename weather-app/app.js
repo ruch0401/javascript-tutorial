@@ -8,6 +8,11 @@ window.addEventListener("load", () => {
   let temperatureUnit = document.querySelector(".temperature-unit");
   const locationTimezone = document.querySelector(".location-timezone");
   const temperatureSection = document.querySelector(".degree-section");
+  const loader = document.querySelector(".lds-ring");
+
+  // Hide the parent divs initially as we are displaying loader until we get the response from the API
+  locationTimezone.parentElement.style.visibility = "hidden";
+  temperatureSection.parentElement.style.visibility = "hidden";
 
   const apiKey = "7bc1ea7ffd50d848c35da2fcf58523ea";
   if (navigator.geolocation) {
@@ -22,7 +27,16 @@ window.addEventListener("load", () => {
       fetch(apiUrl)
         .then((res) => res.json())
         .then((data) => {
+          // Log data returned by the API
           console.log(data);
+
+          // Hide the loader once data from the API is available
+          loader.remove();
+
+          // un-hide the divs
+          locationTimezone.parentElement.style.visibility = "visible";
+          temperatureSection.parentElement.style.visibility = "visible";
+
           const { temperature, summary, icon } = data.currently;
 
           // Manipulate DOM using data from the API
