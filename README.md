@@ -3,6 +3,7 @@
 # Projects
 
 - [To-Do List](to-do-list)
+- [Weather App](weather-app)
 
 # Tutorials
 
