@@ -36,7 +36,6 @@ window.addEventListener("load", () => {
 
           // We wish to convert the temperature to C whenever we click on the section
           temperatureSection.addEventListener("click", () => {
-            console.log(temperatureUnit.innerText);
             if (temperatureUnit.innerText === "F") {
               const convertedtTemperature = (temperature - 32) * (5 / 9);
               temperatureDegreee.textContent =
@@ -44,7 +43,6 @@ window.addEventListener("load", () => {
                 100;
               temperatureUnit.textContent = "C";
             } else {
-              const convertedtTemperature = (temperature * 9) / 5 + 32;
               temperatureDegreee.textContent = temperature;
               temperatureUnit.textContent = "F";
             }
