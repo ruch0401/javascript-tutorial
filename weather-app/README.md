@@ -6,6 +6,12 @@ Visit [here](/weather-app) to view the source code
 
 ![Weather App Gif](resources/weather-app.gif)
 
+Note: The GIF is not able to display the gradient properly
+
+Please refer to the following screenshot for reference - 
+
+![WeatherApp](resources/weather-app.png)
+
 ### Features
 
 - Fetch weather data from [DarkSky](https://darksky.net/dev) API. Note that this API is now only available to existing users
