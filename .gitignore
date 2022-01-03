@@ -1,2 +1,4 @@
 .DS_Store
 .vscode/
+library-app/node_modules
+library-app/.env
